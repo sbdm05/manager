@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {View, Text, NavigatorIOS} from 'react-native';
+import {View, Text} from 'react-native';
 import {Provider} from 'react-redux';
 import {createStore, applyMiddleware} from 'redux';
 import firebase from 'firebase';
@@ -24,15 +24,14 @@ class App extends Component{
 
 
 
-  render(){
-    return(
-      <Provider store={createStore(reducers, {}, applyMiddleware(ReduxThunk))}>
+  render() {
+    const store = createStore(reducers, {}, applyMiddleware(ReduxThunk));
 
-          <Router/>
-
-
+    return (
+      <Provider store={store}>
+        <Router />
       </Provider>
-      );
+    );
   }
 }
 
